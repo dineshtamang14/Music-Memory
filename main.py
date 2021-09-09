@@ -5,8 +5,8 @@ from spotipy.oauth2 import SpotifyOAuth
 
 date = input("Which year do you want to travel to? Type the date in this format YYYY-MM-DD: ")
 response = requests.get(f"https://www.billboard.com/charts/hot-100/{date}")
-Client_ID = "101d7a1a6f3c4cfbb4f7e9015c1d09eb"
-Client_Secret = "ce7744b406d64a789d0dfea4f1725432"
+Client_ID = os.environ.get("client_id")
+Client_Secret = os.environ.get("client_secret")
 
 data = response.text
 soup = BeautifulSoup(data, "html.parser")
